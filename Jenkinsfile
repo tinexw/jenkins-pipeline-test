@@ -1,15 +1,24 @@
 pipeline {
    agent any
    
-   options {
-      disableConcurrentBuilds()
-   }
-   
    stages {
-      stage('1') {
+
+      stage('foo') {
          steps {
-            sleep 10
+            print 'foo'
          }
+      }      
+      lock('myResource') {
+         stage('sleep') {
+            steps {
+               sleep 10
+            }
+         }
+         stage('bar') {
+            steps {
+               print 'bar'
+            }
+         }         
       }
    }
 }
