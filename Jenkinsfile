@@ -8,17 +8,15 @@ pipeline {
             print 'foo'
          }
       }      
-      lock('myResource') {
-         stage('sleep') {
-            steps {
-               sleep 10
-            }
+      stage('sleep') {
+         steps {
+            sleep 10
          }
-         stage('bar') {
-            steps {
-               print 'bar'
-            }
-         }         
       }
+      stage('bar') {
+         steps {
+            print 'bar'
+         }
+      }         
    }
 }
