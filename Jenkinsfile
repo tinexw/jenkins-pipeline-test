@@ -2,8 +2,10 @@ pipeline {
    agent any
    
    stages {
-    stage('1') {
-      sleep 10
-    }
+      stage('1') {
+         steps {
+            sleep 10
+         }
+      }
    }
 }
